@@ -50,5 +50,5 @@ This repository showcases a collection of data-driven projects focused on **Huma
 
 ## 🛠 Skills & Tools
 * **Data Analysis:** Trend Analysis, Attrition Modeling, ROI Calculation, Market Segmentation.
-* **Tools:** Microsoft Excel (Pivot Tables/Dashboards), Tableau, Power BI, Business Intelligence Reporting.
+* **Tools:** Microsoft Tableau (Pivot Tables/Dashboards), Business Intelligence Reporting.
 * **Documentation:** Technical Writing and Strategic Planning.
