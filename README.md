@@ -52,3 +52,11 @@ This repository showcases a collection of data-driven projects focused on **Huma
 * **Data Analysis:** Trend Analysis, Attrition Modeling, ROI Calculation, Market Segmentation.
 * **Tools:** Microsoft Tableau (Pivot Tables/Dashboards), Business Intelligence Reporting.
 * **Documentation:** Technical Writing and Strategic Planning.
+
+---
+
+# 🖥️ Dashboard Preview
+
+HR Attrition Deep Dive: https://public.tableau.com/app/profile/youssef.mohamed/viz/HRAttritionDeepDive/Dashboard1
+Marketing Investment Intelligence: https://public.tableau.com/app/profile/youssef.mohamed/viz/MarketingInvestmentIntelligence/Dashboard1
+Executive Sales Intelligence: https://public.tableau.com/app/profile/youssef.mohamed/viz/ExecutiveSalesIntelligence/Dashboard1
