@@ -1,0 +1,71 @@
+Marketing section
+
+I calculated the actual number of conversions by applying the conversion rate to the total number of clicks:
+Conversions = Clicks × Conversion Rate
+This derived metric (labeled Conversions) was then used to evaluate efficiency by calculating Cost per Conversion:
+Cost per Conversion = Acquisition Cost ÷ Conversions
+All calculated metrics were integrated into an interactive dashboard to present clear performance comparisons across marketing channels. All other standard analysis steps and visualizations were implemented using conventional methods.
+
+
+HR section
+HR Analytics Section
+To measure employee attrition, I calculated the average attrition rate by deriving the proportion of employees who left the organization using conditional aggregation:
+Attrition Rate = SUM(IF [Attrition] = "Yes" THEN 1 ELSE 0 END) ÷ COUNT([Emp ID])
+For training analysis, employees were segmented into training intensity groups based on percentile thresholds (33rd and 66th percentiles), ensuring balanced distribution across:
+•	Low Training 
+•	Medium Training 
+•	High Training 
+•	No Data (for missing values)
+
+Code: 
+IF ISNULL([Training Times Last Year]) THEN 
+    "No Data"
+ELSEIF [Training Times Last Year] <= { FIXED : PERCENTILE([Training Times Last Year], 0.33) } THEN 
+    "Low Training"
+ELSEIF [Training Times Last Year] <= { FIXED : PERCENTILE([Training Times Last Year], 0.66) } THEN 
+    "Medium Training"
+ELSE 
+    "High Training"
+END
+Promotion Status was derived by combining Years Since Last Promotion and Years in Current Role, using percentile-based thresholds to classify employees into:
+•	Recently Promoted: low values in both metrics (≤25th percentile for promotion timing and ≤33rd percentile for role tenure) 
+•	Moderately Promoted: mid-range values (≤66th percentile for time since last promotion) 
+•	Stagnant: higher values indicating limited or no recent progression 
+
+Code:
+IF [Years Since Last Promotion] <= { FIXED : PERCENTILE([Years Since Last Promotion], 0.25) } 
+   AND [Years In Current Role] <= { FIXED : PERCENTILE([Years In Current Role], 0.33) } THEN 
+    "Recently Promoted"
+
+ELSEIF [Years Since Last Promotion] <= { FIXED : PERCENTILE([Years Since Last Promotion], 0.66) } THEN 
+    "Moderately Promoted"
+
+ELSE 
+    "Stagnant"
+END
+Finally, Job Satisfaction scores (1–4) were mapped into descriptive categories:
+•	1 → Very Dissatisfied 
+•	2 → Dissatisfied 
+•	3 → Satisfied 
+•	4 → Very Satisfied 
+All metrics and classifications were standardized and integrated into the HR dashboard to support clear, consistent, and actionable insights.
+
+code:
+CASE [Job Satisfaction]
+WHEN 1 THEN "Very Dissatisfied"
+WHEN 2 THEN "Dissatisfied"
+WHEN 3 THEN "Satisfied"
+WHEN 4 THEN "Very Satisfied"
+END
+Sales Analytics Section
+To compare sales performance by deal size, I categorized transactions into Small, Medium, and Large deals using a percentile-based segmentation approach. Specifically, the 33rd and 66th percentiles of the sales distribution were used as dynamic thresholds to ensure balanced grouping:
+•	Small Deals: Sales values ≤ 33rd percentile 
+•	Medium Deals: Sales values between the 33rd and 66th percentiles 
+•	Large Deals: Sales values > 66th percentile 
+This method enables a data-driven classification of deal sizes, allowing for more meaningful performance comparisons across segments. The resulting categories were incorporated into the analysis to evaluate trends, revenue contribution, and performance differences by deal size within the dashboard.
+Code:
+IF [Sales (Sales)] <= {FIXED : PERCENTILE([Sales (Sales)], 0.33)} THEN "Small"
+ELSEIF [Sales (Sales)] <= {FIXED : PERCENTILE([Sales (Sales)], 0.66)} THEN "Medium"
+ELSE "Large"
+END
+
